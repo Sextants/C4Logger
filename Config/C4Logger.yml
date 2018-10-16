@@ -1,0 +1,27 @@
+defaultLoggers:                                   # 默认Logger的配置
+  - name: default-console-logger                  # 默认Logger的名字，C4Logger会根据该名字去初始化对应的类型的Logger
+    level: debug                                  # logger的level
+  - name: default-files-logger
+    level: info
+    filename: ./logs/default-logs.log             # 文件名
+    maxsize: 102400                               # 单个日志文件的最大尺寸
+    maxfiles: 100                                 # 最多保存的日志文件数
+  - name: default-redis-logger
+    level: info
+    host: "0.0.0.0"                               # redis的host
+    port: 6379                                    # redis的port
+    auth: null                                    # redis的密码
+    length: 300                                   # list的最大长度
+    container: aaa-list                           # 输出到的list的key
+customLoggers:                                    # 自定义Logger的配置
+  - name: custom-logger-00
+    logtype: files
+    level: info
+    label: custom-00
+    filename: ./clogs/custom-logger-00.log
+    maxsize: 10240
+    maxfiles: 10
+  - name: custom-logger-01
+    logtype: console
+    level: debug
+    label: custom-01

@@ -1,0 +1,15 @@
+defaultLoggers:
+  - name : default-console-logger
+    level : debug
+  - name : default-files-logger
+    level : debug
+    filename: ./logs/default-debug.log
+    maxsize: 102400
+    maxfiles: 100
+  - name: default-redis-logger
+    level: debug
+    host: 0.0.0.0
+    port: 6379
+    auth: null
+    length: 300
+    container: log-debug-list
